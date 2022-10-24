@@ -19,6 +19,9 @@
 
 .body {
     height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-image: url("./images/broccoli-bg.png");
     background-size: cover;
     border-top: solid 2px #3A5A40;
@@ -36,5 +39,21 @@
     color: #3A5A40;
 }
 
-.title {
+.button {
+    background-color: #dee8d0;
+    padding: 15px;
+    border: solid 2px #3A5A40;
+    font-size: large;
+    color: #3A5A40;
+}
+
+.popup {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 50vh;
+    background-color: #dee8d0;;
+    border: solid 2px #3A5A40;
 }
