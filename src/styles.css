@@ -12,10 +12,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #588157;
-    color: #ffffff;
+    font-size: xx-large;
+    background-color: #A3B18A;
+    color: #3A5A40;
+}
+
+.body {
+    height: 80vh;
+    background-image: url("./images/brocolli.png");
+    background-size: 200px;
 }
 
 .background {
     background-image: url("https://unsplash.com/photos/FZJO5-NFVzI");
+}
+
+.title {
 }
