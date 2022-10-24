@@ -57,3 +57,13 @@
     background-color: #dee8d0;;
     border: solid 2px #3A5A40;
 }
+
+.table {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: large;
+    color: #3A5A40;
+}

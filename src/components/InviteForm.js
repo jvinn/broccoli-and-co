@@ -1,9 +1,23 @@
 import '../styles.css';
 
 function InviteForm({isVisible}) {
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		alert("Form submitted");
+	}
+
 	return isVisible ? (
 		<div className="popup">
-			<text>Invite Form</text>
+			<form onSubmit={handleSubmit}>
+				<table className="table">
+					<label>Full Name</label>
+					<input type="text" required/>
+					<label>Email</label>
+					<input type="text" required />
+					<label>Confirm Email</label>
+					<input type="text" required />
+				</table>
+			</form>
 		</div>
 	) : "";
 }
