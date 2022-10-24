@@ -3,10 +3,9 @@ import Header from "./components/Header";
 
 function App() {
   return (
-	  <view>
+	  <div>
 		  <Header />
-		  <text>a</text>
-	  </view>
+	  </div>
   );
 }
 

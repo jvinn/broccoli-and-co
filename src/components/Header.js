@@ -2,13 +2,8 @@ import '../styles.css';
 
 function Header() {
 	return(
-		<div>
-			<div className="header">
-				<text>header</text>
-			</div>
-			<div className="body">
-				<text>body</text>
-			</div>
+		<div className="header">
+			<h1>Broccoli & Co.</h1>
 		</div>
 	);
 }
