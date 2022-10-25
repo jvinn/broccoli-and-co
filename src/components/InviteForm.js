@@ -26,7 +26,7 @@ function InviteForm({isVisible, onSuccess, onError}) {
 		}
 		else {
 			postData(name, email).then(() => onSuccess()).catch(err => {
-				onError(err.response);
+				onError(err.response.data.errorMessage);
 			});
 		}
 	}
