@@ -17,18 +17,26 @@ function App() {
 		  <Header />
 		  <div className="body">
 			  <button className="button" onClick={() => setShowForm(true)}>Request an invite</button>
-			  <InviteForm isVisible={showForm}
-			              onSuccess={() => {
-							  setShowForm(false);
-							  setShowComplete(true);}}
-			              onError={(error) => {
-							  setErrorMessage(error);
-							  setShowForm(false);
-							  setShowFail(true);
-			              }}
+			  <InviteForm
+				  isVisible={showForm}
+				  onSuccess={() => {
+					  setShowForm(false);
+					  setShowComplete(true);}}
+				  onError={(error) => {
+					  setErrorMessage(error);
+					  setShowForm(false);
+					  setShowFail(true);
+				  }}
 			  />
-			  <InviteComplete isVisible={showComplete} onComplete={() => setShowComplete(false)} />
-			  <InviteFail isVisible={showFail} onComplete={() => setShowFail(false)} />
+			  <InviteComplete
+				  isVisible={showComplete}
+				  onComplete={() => setShowComplete(false)}
+			  />
+			  <InviteFail
+				  isVisible={showFail}
+				  onComplete={() => setShowFail(false)}
+				  errorMessage={errorMessage}
+			  />
 		  </div>
 		  <Footer />
 	  </div>

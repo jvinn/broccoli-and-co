@@ -1,10 +1,10 @@
 import '../styles.css';
 
-function InviteFail({isVisible, onComplete}) {
+function InviteFail({isVisible, onComplete, errorMessage}) {
 	return isVisible ? (
 		<div className="popup">
 			<div className="container">
-				<p>Emails did not match, please try again</p>
+				<p>{errorMessage}</p>
 				<br />
 				<button className="button" onClick={onComplete}>OK</button>
 			</div>

@@ -12,20 +12,23 @@ function InviteForm({isVisible, onSuccess, onError}) {
 		await axios.post(endpoint, {
 			name: name,
 			email: email
-		}).then(() => onSuccess()).catch(err => {
-			onError(err.response);
 		});
 	}
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
-		if(email === emailRepeated) {
-			postData(name, email).then();
-		} else {
+		if(email !== emailRepeated) {
 			onError("Emails don't match");
 		}
-
+		else if(name.length < 3) {
+			onError("Name must be at least 3 characters long");
+		}
+		else {
+			postData(name, email).then(() => onSuccess()).catch(err => {
+				onError(err.response);
+			});
+		}
 	}
 
 	return isVisible ? (
