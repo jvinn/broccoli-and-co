@@ -10,6 +10,7 @@ function App() {
 	const [showForm, setShowForm] = useState(false);
 	const [showComplete, setShowComplete] = useState(false);
 	const [showFail, setShowFail] = useState(false);
+	const [errorMessage, setErrorMessage] = useState("");
 
 	return (
 	  <div>
@@ -20,13 +21,14 @@ function App() {
 			              onSuccess={() => {
 							  setShowForm(false);
 							  setShowComplete(true);}}
-			              onFailure={() => {
+			              onError={(error) => {
+							  setErrorMessage(error);
 							  setShowForm(false);
-							  setShowFail(true)
+							  setShowFail(true);
 			              }}
 			  />
 			  <InviteComplete isVisible={showComplete} onComplete={() => setShowComplete(false)} />
-			  <InviteFail isVisible={showFail} onComplete={() =>setShowFail(false)} />
+			  <InviteFail isVisible={showFail} onComplete={() => setShowFail(false)} />
 		  </div>
 		  <Footer />
 	  </div>

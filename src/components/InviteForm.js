@@ -1,20 +1,29 @@
 import '../styles.css';
 import {useState} from "react";
-import {postData} from '../API';
+import axios from "axios";
 
-function InviteForm({isVisible, onSuccess, onFailure}) {
+function InviteForm({isVisible, onSuccess, onError}) {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [emailRepeated, setEmailRepeated] = useState("");
+
+	async function postData(name, email) {
+		const endpoint = 'https://us-central1-blinkapp-684c1.cloudfunctions.net/fakeAuth';
+		await axios.post(endpoint, {
+			name: name,
+			email: email
+		}).then(() => onSuccess()).catch(err => {
+			onError(err.response);
+		});
+	}
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
 		if(email === emailRepeated) {
 			postData(name, email).then();
-			onSuccess();
 		} else {
-			onFailure();
+			onError("Emails don't match");
 		}
 
 	}
