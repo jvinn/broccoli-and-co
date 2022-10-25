@@ -3,7 +3,7 @@ import '../styles.css';
 function Footer() {
 	return(
 		<div className="footer">
-			<text>Created by James Vinnicombe</text>
+			<p>Created by James Vinnicombe</p>
 		</div>
 	);
 }

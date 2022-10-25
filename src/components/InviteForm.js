@@ -1,5 +1,6 @@
 import '../styles.css';
 import {useState} from "react";
+import {postData} from '../API';
 
 function InviteForm({isVisible, onComplete}) {
 	const [name, setName] = useState("");
@@ -8,13 +9,14 @@ function InviteForm({isVisible, onComplete}) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+		postData(name, email);
 		onComplete();
 	}
 
 	return isVisible ? (
 		<div className="popup">
 			<form onSubmit={handleSubmit}>
-				<table className="table">
+				<div className="container">
 					<label>Full Name</label>
 					<input type="text" required onChange={(e) => setName(e.target.value)}/>
 					<br />
@@ -25,7 +27,7 @@ function InviteForm({isVisible, onComplete}) {
 					<input type="text" required onChange={(e) => setEmailRepeated(e.target.value)}/>
 					<br />
 					<button className="button">Submit</button>
-				</table>
+				</div>
 			</form>
 		</div>
 	) : "";

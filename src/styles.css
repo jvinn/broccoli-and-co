@@ -60,7 +60,7 @@
     color: #3A5A40;
 }
 
-.table {
+.container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;

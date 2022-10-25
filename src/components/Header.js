@@ -3,7 +3,7 @@ import '../styles.css';
 function Header() {
 	return(
 		<div className="header">
-			<text>Broccoli & Co.</text>
+			<p>Broccoli & Co.</p>
 		</div>
 	);
 }
