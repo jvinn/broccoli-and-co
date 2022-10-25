@@ -2,15 +2,21 @@ import '../styles.css';
 import {useState} from "react";
 import {postData} from '../API';
 
-function InviteForm({isVisible, onComplete}) {
+function InviteForm({isVisible, onSuccess, onFailure}) {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [emailRepeated, setEmailRepeated] = useState("");
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		postData(name, email);
-		onComplete();
+
+		if(email === emailRepeated) {
+			postData(name, email).then();
+			onSuccess();
+		} else {
+			onFailure();
+		}
+
 	}
 
 	return isVisible ? (
@@ -21,10 +27,10 @@ function InviteForm({isVisible, onComplete}) {
 					<input type="text" required onChange={(e) => setName(e.target.value)}/>
 					<br />
 					<label>Email</label>
-					<input type="text" required onChange={(e) => setEmail(e.target.value)}/>
+					<input type="email" required onChange={(e) => setEmail(e.target.value)}/>
 					<br />
 					<label>Confirm Email</label>
-					<input type="text" required onChange={(e) => setEmailRepeated(e.target.value)}/>
+					<input type="email" required onChange={(e) => setEmailRepeated(e.target.value)}/>
 					<br />
 					<button className="button">Submit</button>
 				</div>
